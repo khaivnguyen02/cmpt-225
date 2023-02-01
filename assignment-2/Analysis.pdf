@@ -1,0 +1,36 @@
+Push():
+	-If the stack is full, throw logic_error -> 1 statement
+	- Else:
+		+ Increase size by 1 -> 1 statement
+		+ Iterate the array's stack and shift all elements one position forward
+		-> n-1 statements
+		+ Insert x at index 0 -> 1 statement
+	
+		-> 1 + (n - 1) + 1 = n + 1 statements
+		-> O(n) for a single push().
+	
+In order to insert the element x at index 0, we uses a for loop which iterates through every elements in the array and move them to the next index.
+	(n is the size of array before push())
+	If we perform a single push() -> push 1 item -> overall: n statements
+	If we push 2 items -> overall: 2n statements
+	...
+	If we push n items, the total sum of cost will be close to n * n statements ~ n^2.
+
+--> Answer: O(n^2) to push n items to the Stack
+
+Pop():
+	- If the stack is empty, throw logic_error -> 1 statement
+    	- Else:
+		+ Decrease size by 1 -> 1 statement
+		+ Assigned the value of removed element for returning -> 1 statement 
+		+ Iterate the array's stack and shift all elements backward by 1
+		-> n statements
+
+		-> 1 + 1 + n statements
+		-> O(n) for a single pop()
+We uses a for loop to iterates through every elements in the array and move it to the index below its current index.
+	If we perform a single pop() -> n statements
+	If we pop 2 items -> 2n statements since we have to iterates twice.
+	...
+	If we pop n items, the total sum of cost will be close to n * n statements ~ n^2.
+--> Answer: O(n^2) to pop n items from the Stack
